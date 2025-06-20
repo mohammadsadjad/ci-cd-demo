@@ -12,4 +12,6 @@ jobs:
       with:
         python-version: '3.9'
     - name: Run Hello World
-      run: python hello.py
+      run: |
+        OUTPUT=$(python hello.py)
+        echo $OUTPUT
