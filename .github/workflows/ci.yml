@@ -6,12 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
+    - name: Verify file exists
+      run: ls -l
     - name: Run Hello World
       run: |
+        echo "Starting script execution..."
         OUTPUT=$(python hello.py)
-        echo $OUTPUT
+        echo "Script Output: $OUTPUT"
+        echo "Script execution completed."
